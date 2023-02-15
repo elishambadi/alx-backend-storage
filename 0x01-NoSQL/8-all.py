@@ -1,7 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+
 """
 MongoDB methods
 """
+
+
 def list_all(mongo_collection):
     """
     List all documents in the given collection
