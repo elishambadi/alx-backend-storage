@@ -2,14 +2,10 @@
 """
 MongoDB methods
 """
-import pymongo
 
 
 def update_topics(mongo_collection, name, topics):
     """
     Update the topics taught in a certain school
     """
-    filter = {
-        name: name
-    }
-    mongo_collection.update(filter, {$set: {topics: topics}})
+    mongo_collection.update({"name": name}, {"$set": {"topics": topics}})
