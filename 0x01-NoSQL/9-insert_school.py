@@ -10,9 +10,5 @@ def insert_school(mongo_collection, **kwargs):
     Args: collection, kwargs of data for document
     return: id of new document
     """
-    doc = {} # uses a doc to store the data
-    for k, v in kwargs.items():
-        doc.update(k, v)
-
-    x = mongo_collection.insert(doc)
+    x = mongo_collection.insert(kwargs)
     return x.inserted_id
