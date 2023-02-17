@@ -8,7 +8,7 @@ Cache = __import__('exercise').Cache
 
 cache = Cache()
 
-data = b"hello"
+data = 100
 key = cache.store(data)
 print(key)
 
