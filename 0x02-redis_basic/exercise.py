@@ -20,14 +20,3 @@ class Cache:
         self._redis.incr(id)
         return id
 
-    def get(self, key: str, fn: Callable = None):
-        value = self._redis.get(key)
-        if value is not None and fn is not None:
-            value = fn(value)
-        return value
-
-    def get_str(self, key: str):
-        return self.get(key, fn=lambda x: x.decode('utf-8'))
-
-    def get_int(self, key: str):
-        return self.get(key, fn=lambda x: int(x))
