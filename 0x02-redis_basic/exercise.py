@@ -16,8 +16,9 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrapper
 
+
 def call_history(method: Callable) -> Callable:
-    @wraps(method) # This allows it to decorate a method
+    @wraps(method)  # This allows it to decorate a method
     def wrapper(self, *args):
         inp_key = method.__qualname__+":inputs"
         self._redis.rpush(inp_key, str(args))
@@ -28,6 +29,7 @@ def call_history(method: Callable) -> Callable:
 
         return result
     return wrapper
+
 
 class Cache:
     """
