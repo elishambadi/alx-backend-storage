@@ -4,7 +4,7 @@ Using Redis in Python
 """
 import redis
 import uuid
-from typing import Callable
+from typing import Callable, Union
 
 class Cache:
     """
@@ -14,7 +14,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    def store(self, data) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         id: str = str(uuid.uuid4())
         self._redis.set(id, data)
         return id
