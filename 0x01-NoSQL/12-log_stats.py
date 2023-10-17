@@ -10,7 +10,7 @@ collection = db.nginx
 totalLogs = collection.count_documents({})
 
 methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
-methodCounts = {method: collection.count_documents({"method": method}) for method in methods}
+methodCounts = {m: collection.count_documents({"method": m}) for m in methods}
 
 statusCheck = collection.count_documents({"method": "GET", "path": "/status"})
 
