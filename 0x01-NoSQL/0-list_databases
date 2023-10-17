@@ -1,0 +1,6 @@
+// Lists all Databses
+db.students.insertOne({
+  name: "Alice",
+  age: 25,
+  subjects: ["Math", "History"]
+});
